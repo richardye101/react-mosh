@@ -1,0 +1,41 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "a movie renting service",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage --runInBand --silent=true",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.18.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "config": "^3.3.7",
+    "debug": "^4.3.4",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^5.0.2",
+    "joi": "^17.6.0",
+    "joi-objectid": "^4.0.2",
+    "joi-password-complexity": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
+    "mongoose": "^6.4.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "run-rs": "^0.7.6",
+    "winston": "^3.7.2",
+    "winston-mongodb": "^5.0.7"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1",
+    "jshint": "^2.13.4",
+    "supertest": "^6.2.3"
+  }
+}
