@@ -1,7 +1,6 @@
 import * as genresAPI from "./genreService";
 import http from "./httpService";
-import config from "../config.json";
-const apiEndpoint = "/api/movies";
+const apiEndpoint = "/movies";
 
 function movieUrl(id) {
   return `${apiEndpoint}/${id}`;
@@ -9,6 +8,7 @@ function movieUrl(id) {
 
 export async function getMovies() {
   const { data: movies } = await http.get(apiEndpoint);
+  console.log("GET movies " + movies);
   return movies;
 }
 

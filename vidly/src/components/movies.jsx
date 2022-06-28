@@ -107,7 +107,8 @@ const Movies = (props) => {
     }
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
     const movies = paginate(sorted, curPage, pageSize);
-
+    console.log(filtered);
+    console.log(filtered.length);
     return { totalCount: filtered.length, data: movies };
   };
 
@@ -115,9 +116,9 @@ const Movies = (props) => {
   const { curPage, pageSize, genres, selectedGenre, sortColumn, searchQuery } =
     state;
 
-  if (count === 0) {
-    return <p>There are no movies in the database.</p>;
-  }
+  // if (count === 0) {
+  //   return <p>There are no movies in the database.</p>;
+  // }
 
   const { totalCount, data: movies } = getPagedData();
 

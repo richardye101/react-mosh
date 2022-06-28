@@ -1,7 +1,7 @@
 import http from "./httpService";
 import config from "../config.json";
 
-const apiEndpoint = "/api/genres";
+const apiEndpoint = "/genres";
 
 // export const genres = [
 //   { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },

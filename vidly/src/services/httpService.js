@@ -5,6 +5,9 @@ import logger from "./logService";
 //used to import authService to set jwt for axios, but authService also imported this module. removed bidirectional dependency
 // used authService to setJWT instead
 
+// set base url for the backend
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
 // pass two functions to intercept responses, pass null in place of success fn bc we don't care about success rn
 axios.interceptors.response.use(null, (error) => {
   console.log(error.response.status);

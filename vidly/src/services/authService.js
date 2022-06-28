@@ -1,7 +1,7 @@
 import http from "./httpService";
 import jwtDecode from "jwt-decode";
 
-const apiEndpoint = "/api/auth";
+const apiEndpoint = "/auth";
 const tokenKey = "token";
 
 // got rid of a bidirectional dependency
@@ -37,22 +37,10 @@ export function getJwt() {
   console.log(localStorage.getItem(tokenKey));
   return localStorage.getItem(tokenKey);
 }
-
-export function isAdmin() {
-  try {
-    const jwt = localStorage.getItem(tokenKey);
-    const user = jwtDecode(jwt);
-    if ("isAdmin" in user) return true;
-    return false;
-  } catch (ex) {
-    return null;
-  }
-}
 export default {
   login,
   loginWithJwt,
   logout,
   getCurrentUser,
   getJwt,
-  isAdmin,
 };

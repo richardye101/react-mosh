@@ -1,6 +1,6 @@
 import http from "./httpService";
 import config from "../config.json";
-const apiEndpoint = "/api/users";
+const apiEndpoint = "/users";
 
 function movieUrl(id) {
   return `${apiEndpoint}/${id}`;

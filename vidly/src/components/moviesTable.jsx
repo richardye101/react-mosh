@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import auth from "../services/authService.js";
+import _ from "lodash";
 import Like from "./common/like.jsx";
 import Table from "./common/table.jsx";
-import _ from "lodash";
+import auth from "../services/authService.js";
 
 class MoviesTable extends Component {
+  user = auth.getCurrentUser();
+
   columns = [
     // { path: "title", label: "Title" },
     {
@@ -36,14 +38,19 @@ class MoviesTable extends Component {
   ];
 
   render() {
-    const { movies, onSort, columns, sortColumn } = this.props;
-    if (!auth.isAdmin()) {
-      const columns = _.filter(columns, (i) => i.key !== "delete");
-      console.log(columns);
+    const { movies, onSort, sortColumn } = this.props;
+
+    // Hiding delete column based on whether user is an admin
+    if (!this.user?.isAdmin) {
+      const colsNoDelete = _([...this.columns])
+        .filter((c) => c?.key !== "delete")
+        .value();
+      this.columns = colsNoDelete;
     }
+
     return (
       <Table
-        columns={columns}
+        columns={this.columns}
         data={movies}
         sortColumn={sortColumn}
         onSort={onSort}
